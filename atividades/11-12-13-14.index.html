@@ -1,0 +1,50 @@
+<ul id="nav">
+<li>Home</li>
+<li>Quem Somos</li>
+<li>Produtos</li>
+<li>Onde Comprar</li>
+<li>Contato</li>
+</ul>
+<input type="button" value="11 - Alert" onclick="callAlert()" id="callAlert">
+<input type="button" value="12 e 13 css" onclick="callCss()" id="callCss">
+<input type="button" value="11 - Alert" onclick="callReverse()" id="callReverse">
+<input type="button" value="Reset" onclick="location.reload()" >
+
+<!-- 11 -->
+<script>
+    function callAlert(){
+        document.addEventListener('click', function(e){
+            if (e.target.tagName == "LI")
+                alert(e.target.textContent)
+        })
+        document.getElementById("callAlert").setAttribute('disabled', true)
+    }
+</script>
+<!-- 12 e 13 -->
+<script>
+    function callCss(){
+        let lis = document.querySelectorAll("#nav li")
+        lis.forEach(element => {
+        if (element.textContent == "Onde Comprar")
+            element.style.fontStyle = "italic"
+            if (["Home","Produtos","Contato"].includes(element.textContent))
+                element.style.color = "red"
+            if (["Quem Somos","Onde Comprar"].includes(element.textContent))
+                element.style.fontWeight = "bold"
+        });
+        document.getElementById("callCss").setAttribute('disabled', true)
+    }
+</script>
+
+<!-- 14 -->
+<script>
+    function callReverse(){
+        var nav = document.getElementById("nav")
+        var i = nav.childNodes.length;
+        while (i--)
+            nav.appendChild(nav.childNodes[i]);
+
+        document.getElementById("callReverse").setAttribute('disabled', true)
+    }
+</script>
+
